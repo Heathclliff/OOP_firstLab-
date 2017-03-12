@@ -34,6 +34,5 @@ public abstract class Figure {
         this.borderColor = borderColor;
     }
 
-
     public abstract void draw(Graphics g);
 }

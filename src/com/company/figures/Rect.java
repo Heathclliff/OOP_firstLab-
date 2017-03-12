@@ -7,7 +7,6 @@ import java.awt.*;
  */
 public class Rect extends Figure {
 
-    //protected Point leftPoint;
     private int width;
     private int height;
 
