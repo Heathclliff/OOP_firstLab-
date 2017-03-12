@@ -1,21 +1,23 @@
 package com.company;
 
+import com.company.figures.Line;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class Main {
+    static int x = 10;
 
     public static void main(String[] args) {
 
         JFrame mainFrame = new JFrame();
         mainFrame.setVisible(true);
-        mainFrame.setSize(600, 400);
+        mainFrame.setSize(430, 430);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setBackground(Color.blue);
-        mainFrame.add(new MyComponent());
+
+        MyComponent myComponent = new MyComponent();
+        mainFrame.add(myComponent);
 
         Box box = Box.createHorizontalBox();
         JButton arcButn = new JButton("Arc");
@@ -31,48 +33,35 @@ public class Main {
         box.add(rectButn);
         box.add(squareButn);
 
-        arcButn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-            }
+
+        arcButn.addActionListener(e -> {
+
         });
 
-        circleButn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        circleButn.addActionListener(e -> {
 
-            }
         });
 
-        ellipseButn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        ellipseButn.addActionListener(e -> {
 
-            }
         });
 
-        lineButn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        lineButn.addActionListener(e -> {
 
-            }
+            myComponent.addFigure(new Line(new com.company.figures.Point(x, 1), new com.company.figures.Point(30, 30)));
+            mainFrame.revalidate();
+            mainFrame.repaint();
+            x += 10;
         });
 
-        rectButn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        rectButn.addActionListener(e -> {
 
-            }
         });
 
-        squareButn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        squareButn.addActionListener(e -> {
 
-            }
         });
 
-        mainFrame.add(box, BorderLayout.SOUTH);
+        mainFrame.add(box, BorderLayout.NORTH);
     }
 }
