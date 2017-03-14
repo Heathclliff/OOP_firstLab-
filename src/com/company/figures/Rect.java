@@ -25,6 +25,11 @@ public class Rect extends Figure {
         this.height = height;
     }
 
+    public int getWight() {
+
+        return width;
+    }
+
     public int getWidth() {
 
         return width;
