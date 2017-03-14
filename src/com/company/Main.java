@@ -49,9 +49,9 @@ public class Main {
             JTextField textFieldY2 = new JTextField(16);
 
             JLabel labelFArc = new JLabel("Начальный угол:");
-            JTextField textFieldFArc = new JTextField(20);
+            JTextField textFieldFArc = new JTextField(16);
             JLabel labelLArc = new JLabel("Конечный угол:");
-            JTextField textFieldLArc = new JTextField(20);
+            JTextField textFieldLArc = new JTextField(16);
 
 
             panel.add(labelX1);
@@ -80,6 +80,7 @@ public class Main {
                     String message = "Введите,пожалуйста,цифровые значения!";
                     JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
                 } finally {
+                    mainFrame.remove(panel);
                     mainFrame.revalidate();
                     mainFrame.repaint();
                 }
@@ -121,6 +122,7 @@ public class Main {
                     String message = "Введите,пожалуйста,цифровые значения!";
                     JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
                 } finally {
+                    mainFrame.remove(panel);
                     mainFrame.revalidate();
                     mainFrame.repaint();
                 }
@@ -162,6 +164,7 @@ public class Main {
                     String message = "Введите,пожалуйста,цифровые значения!";
                     JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
                 } finally {
+                    mainFrame.remove(panel);
                     mainFrame.revalidate();
                     mainFrame.repaint();
                 }
@@ -203,6 +206,7 @@ public class Main {
                     String message = "Введите,пожалуйста,цифровые значения!";
                     JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
                 } finally {
+                    mainFrame.remove(panel);
                     mainFrame.revalidate();
                     mainFrame.repaint();
                 }
@@ -221,9 +225,9 @@ public class Main {
             JTextField textFieldY1 = new JTextField(16);
 
             JLabel labelX2 = new JLabel("Ширина:");
-            JTextField textFieldX2 = new JTextField(10);
+            JTextField textFieldX2 = new JTextField(16);
             JLabel labelY2 = new JLabel("Высота:");
-            JTextField textFieldY2 = new JTextField(10);
+            JTextField textFieldY2 = new JTextField(16);
 
             panel.add(labelX1);
             panel.add(textFieldX1);
@@ -238,12 +242,13 @@ public class Main {
                 try {
                     com.company.figures.Point p1 = new Point(Integer.parseInt(textFieldX1.getText()), Integer.parseInt(textFieldX1.getText()));
                     int height = Integer.parseInt(textFieldX2.getText());
-                    int weidth = Integer.parseInt(textFieldY2.getText());
-                    myComponent.addFigure(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), height, weidth));
+                    int width = Integer.parseInt(textFieldY2.getText());
+                    myComponent.addFigure(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), width, height));
                 } catch (Exception e1) {
                     String message = "Введите,пожалуйста,цифровые значения!";
                     JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
                 } finally {
+                    mainFrame.remove(panel);
                     mainFrame.revalidate();
                     mainFrame.repaint();
                 }
@@ -280,6 +285,7 @@ public class Main {
                     String message = "Введите,пожалуйста,цифровые значения!";
                     JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
                 } finally {
+                    mainFrame.remove(panel);
                     mainFrame.revalidate();
                     mainFrame.repaint();
                 }
