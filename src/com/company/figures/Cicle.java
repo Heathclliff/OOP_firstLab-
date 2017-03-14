@@ -5,7 +5,6 @@ package com.company.figures;
  */
 public final class Cicle extends Ellipse {
 
-
     public Cicle(Point Center, Point radius) {
         super(Center, radius);
     }

@@ -5,26 +5,15 @@ import java.awt.*;
 /**
  * Created by Валерий on 28.02.2017.
  */
-public class Ellipse extends Figure {
-
-    private Point rightPoint;
+public class Ellipse extends TwoDots {
 
     public Ellipse(Point firstPoint, Point rightPoint) {
-        super(firstPoint);
-        this.setRightPoint(rightPoint);
-    }
-
-    public Point getRightPoint() {
-        return rightPoint;
-    }
-
-    public void setRightPoint(Point rightPoint) {
-        this.rightPoint = rightPoint;
+        super(firstPoint, rightPoint);
     }
 
     @Override
     public void draw(Graphics g) {
-        g.drawOval(getFirstPoint().getX(), getFirstPoint().getY(), getRightPoint().getX(), getRightPoint().getY());
+        g.drawOval(getFirstPoint().getX(), getFirstPoint().getY(), getLastPoint().getX(), getLastPoint().getY());
     }
 
 }

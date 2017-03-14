@@ -5,18 +5,14 @@ import java.awt.*;
 /**
  * Created by Валерий on 28.02.2017.
  */
-public class Line extends Figure {
-
-    private Point lastPoint;
-
+public class Line extends TwoDots {
 
     public Line(Point fistPoint, Point lastPoint) {
-        super(fistPoint);
-        this.lastPoint = lastPoint;
+        super(fistPoint, lastPoint);
     }
 
     @Override
     public void draw(Graphics g) {
-        g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), lastPoint.getX(), lastPoint.getY());
+        g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), getLastPoint().getX(), getLastPoint().getY());
     }
 }
