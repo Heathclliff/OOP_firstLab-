@@ -17,7 +17,6 @@ public class Line extends Figure {
 
     @Override
     public void draw(Graphics g) {
-
         g.drawLine(getFirstPoint().getX(), getFirstPoint().getY(), lastPoint.getX(), lastPoint.getY());
     }
 }

@@ -15,7 +15,6 @@ public class Ellipse extends Figure {
     }
 
     public Point getRightPoint() {
-
         return rightPoint;
     }
 
@@ -25,7 +24,6 @@ public class Ellipse extends Figure {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(getBorderColor());
         g.drawOval(getFirstPoint().getX(), getFirstPoint().getY(), getRightPoint().getX(), getRightPoint().getY());
     }
 

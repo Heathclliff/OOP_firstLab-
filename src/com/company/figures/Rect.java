@@ -17,7 +17,6 @@ public class Rect extends Figure {
     }
 
     public int getHeight() {
-
         return height;
     }
 
@@ -26,7 +25,6 @@ public class Rect extends Figure {
     }
 
     public int getWidth() {
-
         return width;
     }
 

@@ -14,7 +14,6 @@ public final class Point {
     }
 
     public int getY() {
-
         return y;
     }
 
@@ -23,12 +22,10 @@ public final class Point {
     }
 
     public int getX() {
-
         return x;
     }
 
     public void setX(int x) {
-
         this.x = x;
     }
 }

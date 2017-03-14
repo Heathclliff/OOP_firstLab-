@@ -12,10 +12,7 @@ public abstract class Figure {
 
     public Figure(Point firstPoint) {
         this.setFirstPoint(firstPoint);
-    }
-
-    public Figure() {
-        borderColor = Color.BLACK;
+        this.borderColor = Color.BLACK;
     }
 
     public Point getFirstPoint() {

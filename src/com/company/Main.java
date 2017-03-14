@@ -89,7 +89,43 @@ public class Main {
         });
 
         rectButn.addActionListener(e -> {
+            JPanel panel = new JPanel();
+            JLabel labelX1 = new JLabel("X:");
+            JTextField textFieldX1 = new JTextField(16);
+            JLabel labelY1 = new JLabel("Y:");
+            JTextField textFieldY1 = new JTextField(16);
 
+            JLabel labelX2 = new JLabel("X:");
+            JTextField textFieldX2 = new JTextField(16);
+            JLabel labelY2 = new JLabel("Y:");
+            JTextField textFieldY2 = new JTextField(16);
+
+            panel.add(labelX1);
+            panel.add(textFieldX1);
+            panel.add(labelY1);
+            panel.add(textFieldY1);
+            panel.add(labelX2);
+            panel.add(textFieldX2);
+            panel.add(labelY2);
+            panel.add(textFieldY2);
+            JButton button = new JButton("Нарисовать");
+            button.addActionListener((ActionEvent q) -> {
+                try {
+                    com.company.figures.Point p1 = new Point(Integer.parseInt(textFieldX1.getText()), Integer.parseInt(textFieldX1.getText()));
+                    com.company.figures.Point p2 = new Point(Integer.parseInt(textFieldX2.getText()), Integer.parseInt(textFieldX2.getText()));
+                    myComponent.addFigure(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
+                } catch (Exception e1) {
+                    String message = "Введите,пожалуйста,цифровые значения!";
+                    JOptionPane.showMessageDialog(mainFrame, message, "Dialog", JOptionPane.ERROR_MESSAGE);
+                } finally {
+                    mainFrame.revalidate();
+                    mainFrame.repaint();
+                }
+            });
+            panel.add(button);
+            mainFrame.add(panel);
+            mainFrame.revalidate();
+            mainFrame.repaint();
         });
 
         squareButn.addActionListener(e -> {
