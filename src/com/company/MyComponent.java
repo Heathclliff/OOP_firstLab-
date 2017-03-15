@@ -1,10 +1,10 @@
 package com.company;
 
 import com.company.figures.*;
-import com.company.figuresDrawers.ArcDrawer;
-import com.company.figuresDrawers.EllipseDrawer;
-import com.company.figuresDrawers.LineDrawer;
-import com.company.figuresDrawers.RectDrawer;
+import com.company.figures_drawers.ArcDrawer;
+import com.company.figures_drawers.EllipseDrawer;
+import com.company.figures_drawers.LineDrawer;
+import com.company.figures_drawers.RectDrawer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ public class MyComponent extends JComponent {
     private ArcDrawer arcDrawer;
     private EllipseDrawer ellipseDrawer;
     private RectDrawer rectDrawer;
-    private int countLines;
+    private int countLines = 0;
 
   /* public void drawing(Graphics g) {
 
@@ -39,9 +39,9 @@ public class MyComponent extends JComponent {
     }*/
 
     //private ArrayList<LineDrawer>  lineDrawers = new ArrayList<>();
-    private int countArcs;
-    private int countEllipses;
-    private int countRects;
+    private int countArcs = 0;
+    private int countEllipses = 0;
+    private int countRects = 0;
     private ArrayList<Line> lineArrayList = new ArrayList<>();
     private ArrayList<Arc> arcs = new ArrayList<>();
     private ArrayList<Ellipse> ellipses = new ArrayList<>();
@@ -106,7 +106,6 @@ public class MyComponent extends JComponent {
 
     public void drawing(Graphics g) {
         for (int i = 0; i < countLines; i++) {
-
             lineDrawer.draw(g, lineArrayList.get(i).getFirstPoint(), lineArrayList.get(i).getLastPoint());
         }
         for (int i = 0; i < countEllipses; i++) {
@@ -121,6 +120,5 @@ public class MyComponent extends JComponent {
 
             rectDrawer.draw(g, rectangles.get(i).getFirstPoint(), rectangles.get(i).getHeight(), rectangles.get(i).getWidth());
         }
-
     }
 }
