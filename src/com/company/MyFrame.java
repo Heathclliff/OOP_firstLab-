@@ -38,13 +38,13 @@ public class MyFrame extends JFrame {
         box.add(lineButn);
         box.add(rectButn);
         box.add(squareButn);
+        this.add(box, BorderLayout.NORTH);
 
         arcButn.addActionListener(e -> {
-
             MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:", "Начальный угол:", "Конечный угол:");
 
             addJButton(myPanel, (ActionEvent q) -> {
-                if (myPanel.checkFields()) {
+                if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
                     int firstArc = myPanel.getTextFieldValue(4);
@@ -54,11 +54,6 @@ public class MyFrame extends JFrame {
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Some of fields is empty",
-                            "Empty fields",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             });
         });
@@ -67,7 +62,7 @@ public class MyFrame extends JFrame {
             MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:");
 
             addJButton(myPanel, (ActionEvent q) -> {
-                if (myPanel.checkFields()) {
+                if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
 
@@ -75,11 +70,6 @@ public class MyFrame extends JFrame {
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Some of fields is empty",
-                            "Empty fields",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             });
         });
@@ -88,7 +78,7 @@ public class MyFrame extends JFrame {
             MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:");
 
             addJButton(myPanel, (ActionEvent q) -> {
-                if (myPanel.checkFields()) {
+                if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
 
@@ -96,11 +86,6 @@ public class MyFrame extends JFrame {
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Some of fields is empty",
-                            "Empty fields",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             });
         });
@@ -109,18 +94,13 @@ public class MyFrame extends JFrame {
             MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:");
 
             addJButton(myPanel, (ActionEvent q) -> {
-                if (myPanel.checkFields()) {
+                if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
                     myComponent.addFigure(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Some of fields is empty",
-                            "Empty fields",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             });
         });
@@ -129,7 +109,7 @@ public class MyFrame extends JFrame {
             MyPanel myPanel = new MyPanel("X:", "Y:", "Ширина:", "Высота:");
 
             addJButton(myPanel, (ActionEvent q) -> {
-                if (myPanel.checkFields()) {
+                if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     int height = myPanel.getTextFieldValue(2);
                     int width = myPanel.getTextFieldValue(3);
@@ -137,11 +117,6 @@ public class MyFrame extends JFrame {
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Some of fields is empty",
-                            "Empty fields",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             });
         });
@@ -150,23 +125,16 @@ public class MyFrame extends JFrame {
             MyPanel myPanel = new MyPanel("X:", "Y:", "Сторона:");
 
             addJButton(myPanel, (ActionEvent q) -> {
-                if (myPanel.checkFields()) {
+                if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     int side = myPanel.getTextFieldValue(2);
                     myComponent.addFigure(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), side, side));
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
-                } else {
-                    JOptionPane.showMessageDialog(this,
-                            "Some of fields is empty",
-                            "Empty fields",
-                            JOptionPane.ERROR_MESSAGE);
                 }
             });
         });
-
-        this.add(box, BorderLayout.NORTH);
     }
 
 
@@ -179,5 +147,17 @@ public class MyFrame extends JFrame {
         this.add(myPanel);
         this.revalidate();
         this.repaint();
+    }
+
+    public boolean checkAllFields(MyPanel myPanel) {
+        if (myPanel.checkFields()) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Some of fields is empty",
+                    "Empty fields",
+                    JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
     }
 }
