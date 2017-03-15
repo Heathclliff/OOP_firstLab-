@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MyComponent extends JComponent {
 
     Graphics g;
-
+    //fkg
     /*private Line myLine;
     private Arc myArc;
     private Ellipse myEllipse;
