@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -22,15 +23,21 @@ public class MyPanel extends JPanel {
 
         ;
     };
+    private JButton jButton;
     private List<JTextField> jTextFieldList = new ArrayList<>();
 
 
-    public MyPanel(String... labels) {
+    public MyPanel(ActionListener actionListener, String... labels) {
+
+        this.jButton = new JButton("Нарисовать");
+        jButton.addActionListener(actionListener);
 
         for (int i = 0; i < labels.length; i++) {
 
             jTextFieldList.add(getTextField(labels[i]));
         }
+
+        this.add(jButton);
     }
 
 

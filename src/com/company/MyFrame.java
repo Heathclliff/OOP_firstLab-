@@ -12,14 +12,14 @@ import com.company.figures_drawers.RectDrawer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Валерий on 14.03.2017.
  */
 public class MyFrame extends JFrame {
 
-    Graphics g;
+    //Graphics g;
+    MyPanel myPanel;
 
     private MyComponent myComponent;
 
@@ -51,9 +51,10 @@ public class MyFrame extends JFrame {
         this.add(box, BorderLayout.NORTH);
 
         arcButn.addActionListener(e -> {
-            MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:", "Начальный угол:", "Конечный угол:");
-
-            addJButton(myPanel, (ActionEvent q) -> {
+            if (myPanel != null) {
+                this.remove(myPanel);
+            }
+            myPanel = new MyPanel(e1 -> {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
@@ -63,33 +64,39 @@ public class MyFrame extends JFrame {
                     myComponent.addFigureDrawer(new ArcDrawer(new Arc(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()), firstArc, lastArc)));
 
                     this.remove(myPanel);
-                    this.revalidate();
-                    this.repaint();
+                    repainting();
                 }
-            });
+            }, "X:", "Y:", "X:", "Y:", "Начальный угол:", "Конечный угол:");
+
+            this.add(myPanel);
+            repainting();
         });
 
         circleButn.addActionListener(e -> {
-            MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:");
-
-            addJButton(myPanel, (ActionEvent q) -> {
+            if (myPanel != null) {
+                this.remove(myPanel);
+            }
+            myPanel = new MyPanel(e1 -> {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
 
-                    myComponent.addFigureDrawer(new EllipseDrawer(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()))));
+                    myComponent.addFigureDrawer(new EllipseDrawer(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getX()))));
 
                     this.remove(myPanel);
-                    this.revalidate();
-                    this.repaint();
+                    repainting();
                 }
-            });
+            }, "X:", "Y:", "X:", "Y:");
+
+            this.add(myPanel);
+            repainting();
         });
 
         ellipseButn.addActionListener(e -> {
-            MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:");
-
-            addJButton(myPanel, (ActionEvent q) -> {
+            if (myPanel != null) {
+                this.remove(myPanel);
+            }
+            myPanel = new MyPanel(e1 -> {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
@@ -97,15 +104,18 @@ public class MyFrame extends JFrame {
                     myComponent.addFigureDrawer(new EllipseDrawer(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()))));
 
                     this.remove(myPanel);
-                    this.revalidate();
-                    this.repaint();
+                    repainting();
                 }
-            });
+            }, "X:", "Y:", "X:", "Y:");
+            this.add(myPanel);
+            repainting();
         });
 
         lineButn.addActionListener((ActionEvent e) -> {
-            MyPanel myPanel = new MyPanel("X:", "Y:", "X:", "Y:");
-            addJButton(myPanel, (ActionEvent q) -> {
+            if (myPanel != null) {
+                this.remove(myPanel);
+            }
+            myPanel = new MyPanel(e1 -> {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
@@ -113,16 +123,18 @@ public class MyFrame extends JFrame {
                     myComponent.addFigureDrawer(new LineDrawer(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()))));
 
                     this.remove(myPanel);
-                    this.revalidate();
-                    this.repaint();
+                    repainting();
                 }
-            });
+            }, "X:", "Y:", "X:", "Y:");
+            this.add(myPanel);
+            repainting();
         });
 
         rectButn.addActionListener(e -> {
-            MyPanel myPanel = new MyPanel("X:", "Y:", "Ширина:", "Высота:");
-
-            addJButton(myPanel, (ActionEvent q) -> {
+            if (myPanel != null) {
+                this.remove(myPanel);
+            }
+            myPanel = new MyPanel(e1 -> {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     int height = myPanel.getTextFieldValue(2);
@@ -131,16 +143,18 @@ public class MyFrame extends JFrame {
                     myComponent.addFigureDrawer(new RectDrawer(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), width, height)));
 
                     this.remove(myPanel);
-                    this.revalidate();
-                    this.repaint();
+                    repainting();
                 }
-            });
+            }, "X:", "Y:", "Ширина:", "Высота:");
+            this.add(myPanel);
+            repainting();
         });
 
         squareButn.addActionListener(e -> {
-            MyPanel myPanel = new MyPanel("X:", "Y:", "Сторона:");
-
-            addJButton(myPanel, (ActionEvent q) -> {
+            if (myPanel != null) {
+                this.remove(myPanel);
+            }
+            myPanel = new MyPanel(e1 -> {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     int side = myPanel.getTextFieldValue(2);
@@ -148,23 +162,12 @@ public class MyFrame extends JFrame {
                     myComponent.addFigureDrawer(new RectDrawer(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), side, side)));
 
                     this.remove(myPanel);
-                    this.revalidate();
-                    this.repaint();
+                    repainting();
                 }
-            });
+            }, "X:", "Y:", "Сторона:");
+            this.add(myPanel);
+            repainting();
         });
-    }
-
-
-    private void addJButton(MyPanel myPanel, ActionListener actionListener) {
-
-        JButton button = new JButton("Нарисовать");
-        button.addActionListener(actionListener);
-
-        myPanel.add(button);
-        this.add(myPanel);
-        this.revalidate();
-        this.repaint();
     }
 
     public boolean checkAllFields(MyPanel myPanel) {
@@ -177,5 +180,10 @@ public class MyFrame extends JFrame {
                     JOptionPane.ERROR_MESSAGE);
             return false;
         }
+    }
+
+    public void repainting() {
+        this.revalidate();
+        this.repaint();
     }
 }
