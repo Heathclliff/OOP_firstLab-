@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
  */
 public class MyFrame extends JFrame {
 
+    Graphics g;
+
     private MyComponent myComponent;
 
     public void initialization() {
@@ -23,6 +25,8 @@ public class MyFrame extends JFrame {
         this.setBackground(Color.blue);
 
         MyComponent myComponent = new MyComponent();
+        myComponent.setCountLines(0);
+
         this.add(myComponent);
 
         Box box = Box.createHorizontalBox();
@@ -97,7 +101,10 @@ public class MyFrame extends JFrame {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
-                    myComponent.addFigure(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
+                    //myComponent.addFigure(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
+                    //myComponent.addFigureDrawer(new LineDrawer());
+                    myComponent.setCountLines(myComponent.getCountLines() + 1);
+                    myComponent.addLineArrayList(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();

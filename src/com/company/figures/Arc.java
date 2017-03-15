@@ -16,6 +16,22 @@ public final class Arc extends TwoDots {
         this.lastAngle = lastAngle;
     }
 
+    public int getStartAngle() {
+        return startAngle;
+    }
+
+    public void setStartAngle(int startAngle) {
+        this.startAngle = startAngle;
+    }
+
+    public int getLastAngle() {
+        return lastAngle;
+    }
+
+    public void setLastAngle(int lastAngle) {
+        this.lastAngle = lastAngle;
+    }
+
     @Override
     public void draw(Graphics g) {
         g.drawArc(getFirstPoint().getX(), getFirstPoint().getY(), getLastPoint().getX(), getLastPoint().getY(), startAngle, lastAngle);
