@@ -1,7 +1,5 @@
 package com.company.figures_drawers;
 
-import com.company.figures.Figure;
-
 import java.awt.*;
 
 /**
@@ -9,5 +7,5 @@ import java.awt.*;
  */
 public interface FigureDrawer {
 
-    void draw(Graphics g, Figure figure);
+    void draw(Graphics g);
 }

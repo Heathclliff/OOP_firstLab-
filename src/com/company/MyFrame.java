@@ -1,6 +1,13 @@
 package com.company;
 
-import com.company.figures.*;
+import com.company.figures.Arc;
+import com.company.figures.Ellipse;
+import com.company.figures.Line;
+import com.company.figures.Rect;
+import com.company.figures_drawers.ArcDrawer;
+import com.company.figures_drawers.EllipseDrawer;
+import com.company.figures_drawers.LineDrawer;
+import com.company.figures_drawers.RectDrawer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,10 +32,6 @@ public class MyFrame extends JFrame {
         this.setBackground(Color.blue);
 
         MyComponent myComponent = new MyComponent();
-       /* myComponent.setCountLines(0);
-        myComponent.setCountArcs(0);
-        myComponent.setCountEllipses(0);
-        myComponent.setCountRects(0);*/
 
         this.add(myComponent);
 
@@ -56,9 +59,9 @@ public class MyFrame extends JFrame {
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
                     int firstArc = myPanel.getTextFieldValue(4);
                     int lastArc = myPanel.getTextFieldValue(5);
-                    myComponent.setCountArcs(myComponent.getCountArcs() + 1);
-                    myComponent.addArcs(new Arc(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()), firstArc, lastArc));
-                    //myComponent.addFigure(new Arc(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()), firstArc, lastArc));
+
+                    myComponent.addFigureDrawer(new ArcDrawer(new Arc(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()), firstArc, lastArc)));
+
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
@@ -74,9 +77,8 @@ public class MyFrame extends JFrame {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
 
-                    myComponent.setCountEllipses(myComponent.getCountEllipses() + 1);
-                    myComponent.addEllipses(new Circle(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
-                    //myComponent.addFigure(new Circle(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
+                    myComponent.addFigureDrawer(new EllipseDrawer(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()))));
+
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
@@ -91,9 +93,9 @@ public class MyFrame extends JFrame {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
-                    myComponent.setCountEllipses(myComponent.getCountEllipses() + 1);
-                    myComponent.addEllipses(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
-                    //myComponent.addFigure(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
+
+                    myComponent.addFigureDrawer(new EllipseDrawer(new Ellipse(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()))));
+
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
@@ -107,10 +109,9 @@ public class MyFrame extends JFrame {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     com.company.figures.Point p2 = new com.company.figures.Point(myPanel.getTextFieldValue(2), myPanel.getTextFieldValue(3));
-                    //myComponent.addFigure(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
-                    //myComponent.addFigureDrawer(new LineDrawer());
-                    myComponent.setCountLines(myComponent.getCountLines() + 1);
-                    myComponent.addLineArrayList(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY())));
+
+                    myComponent.addFigureDrawer(new LineDrawer(new Line(new com.company.figures.Point(p1.getX(), p1.getY()), new com.company.figures.Point(p2.getX(), p2.getY()))));
+
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
@@ -126,9 +127,9 @@ public class MyFrame extends JFrame {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     int height = myPanel.getTextFieldValue(2);
                     int width = myPanel.getTextFieldValue(3);
-                    myComponent.setCountRects(myComponent.getCountRects() + 1);
-                    myComponent.addRectangles(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), width, height));
-                    //myComponent.addFigure(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), width, height));
+
+                    myComponent.addFigureDrawer(new RectDrawer(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), width, height)));
+
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();
@@ -143,9 +144,9 @@ public class MyFrame extends JFrame {
                 if (checkAllFields(myPanel)) {
                     com.company.figures.Point p1 = new com.company.figures.Point(myPanel.getTextFieldValue(0), myPanel.getTextFieldValue(1));
                     int side = myPanel.getTextFieldValue(2);
-                    myComponent.setCountRects(myComponent.getCountRects() + 1);
-                    myComponent.addRectangles(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), side, side));
-                    //myComponent.addFigure(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), side, side));
+
+                    myComponent.addFigureDrawer(new RectDrawer(new Rect(new com.company.figures.Point(p1.getX(), p1.getY()), side, side)));
+
                     this.remove(myPanel);
                     this.revalidate();
                     this.repaint();

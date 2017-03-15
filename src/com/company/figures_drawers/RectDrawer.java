@@ -1,6 +1,5 @@
 package com.company.figures_drawers;
 
-import com.company.figures.Figure;
 import com.company.figures.Rect;
 
 import java.awt.*;
@@ -10,9 +9,14 @@ import java.awt.*;
  */
 public class RectDrawer implements FigureDrawer {
 
+    private Rect rect;
+
+    public RectDrawer(Rect rect) {
+        this.rect = rect;
+    }
+
     @Override
-    public void draw(Graphics g, Figure figure) {
-        Rect rect = (Rect) figure;
+    public void draw(Graphics g) {
         g.drawRect(rect.getFirstPoint().getX(), rect.getFirstPoint().getY(), rect.getHeight(), rect.getWidth());
     }
 }

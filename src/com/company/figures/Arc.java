@@ -1,7 +1,5 @@
 package com.company.figures;
 
-import java.awt.*;
-
 /**
  * Created by Валерий on 28.02.2017.
  */
@@ -32,8 +30,4 @@ public final class Arc extends TwoDots {
         this.lastAngle = lastAngle;
     }
 
-    @Override
-    public void draw(Graphics g) {
-        g.drawArc(getFirstPoint().getX(), getFirstPoint().getY(), getLastPoint().getX(), getLastPoint().getY(), startAngle, lastAngle);
-    }
 }

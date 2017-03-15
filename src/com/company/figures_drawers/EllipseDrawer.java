@@ -1,7 +1,6 @@
 package com.company.figures_drawers;
 
 import com.company.figures.Ellipse;
-import com.company.figures.Figure;
 
 import java.awt.*;
 
@@ -10,9 +9,14 @@ import java.awt.*;
  */
 public class EllipseDrawer implements FigureDrawer {
 
+    private Ellipse ellipse;
+
+    public EllipseDrawer(Ellipse ellipse) {
+        this.ellipse = ellipse;
+    }
+
     @Override
-    public void draw(Graphics g, Figure figure) {
-        Ellipse ellipse = (Ellipse) figure;
+    public void draw(Graphics g) {
         g.drawOval(ellipse.getFirstPoint().getX(), ellipse.getFirstPoint().getY(), ellipse.getLastPoint().getX(), ellipse.getLastPoint().getY());
     }
 }
