@@ -1,25 +1,33 @@
 package com.company.figures;
 
-import java.awt.*;
-
 /**
  * Created by Валерий on 28.02.2017.
  */
-public final class Arc extends Figure {
+public final class Arc extends TwoDots {
 
-    private Point lastPoint;
     private int startAngle;
     private int lastAngle;
 
-    public Arc(Point firstPoint, Point rightPoint, int startAngle, int lastAngle) {
-        super(firstPoint);
-        this.lastPoint = rightPoint;
+    public Arc(Point firstPoint, Point lastPoint, int startAngle, int lastAngle) {
+        super(firstPoint, lastPoint);
         this.startAngle = startAngle;
         this.lastAngle = lastAngle;
     }
 
-    @Override
-    public void draw(Graphics g) {
-        g.drawArc(getFirstPoint().getX(), getFirstPoint().getY(), lastPoint.getX(), lastPoint.getY(), startAngle, lastAngle);
+    public int getStartAngle() {
+        return startAngle;
     }
+
+    public void setStartAngle(int startAngle) {
+        this.startAngle = startAngle;
+    }
+
+    public int getLastAngle() {
+        return lastAngle;
+    }
+
+    public void setLastAngle(int lastAngle) {
+        this.lastAngle = lastAngle;
+    }
+
 }

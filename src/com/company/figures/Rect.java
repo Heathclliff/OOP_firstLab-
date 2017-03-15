@@ -1,7 +1,5 @@
 package com.company.figures;
 
-import java.awt.*;
-
 /**
  * Created by Валерий on 28.02.2017.
  */
@@ -17,6 +15,7 @@ public class Rect extends Figure {
     }
 
     public int getHeight() {
+
         return height;
     }
 
@@ -24,17 +23,17 @@ public class Rect extends Figure {
         this.height = height;
     }
 
+    public int getWight() {
+
+        return width;
+    }
+
     public int getWidth() {
+
         return width;
     }
 
     public void setWidth(int width) {
         this.width = width;
-    }
-
-    @Override
-    public void draw(Graphics g) {
-
-        g.drawRect(getFirstPoint().getX(), getFirstPoint().getY(), width, height);
     }
 }

@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by Валерий on 28.02.2017.
  */
-public abstract class Figure {
+public class Figure {
 
     private Point firstPoint;
     private Color borderColor;
@@ -30,6 +30,4 @@ public abstract class Figure {
     public void setBorderColor(Color borderColor) {
         this.borderColor = borderColor;
     }
-
-    public abstract void draw(Graphics g);
 }

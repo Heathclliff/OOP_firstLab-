@@ -9,4 +9,14 @@ public final class Square extends Rect {
 
         super(leftPoint, width_height, width_height);
     }
+
+    @Override
+    public int getWidth() {
+        return getHeight();
+    }
+
+    @Override
+    public void setWidth(int width) {
+        this.setHeight(width);
+    }
 }
